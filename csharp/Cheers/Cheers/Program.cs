@@ -15,22 +15,15 @@ namespace Cheers
 			string date = Console.ReadLine ();
 			DateTime dateOBJ = DateTime.Parse (date);
 
+			int difference = 0;
 
-			var daysTillBday = (DateTime.Today.Subtract(dateOBJ).Days);
-
-			if (daysTillBday == 0) 
-			{
-				greeting = ("Happy Birthday!!!!");
+			DateTime lastDay = new DateTime(2015, 12 ,31);
+			if (DateTime.today < DateTime.Parse(bday)) { 
+				difference = DateTime.Parse(bday).DayOfYear - DateTime.Today;
+			}else{
+				difference = lastDay.DayOfYear - DateTime.Today.DayOfYear + DateTime.Parse(bday).DayOfYear;
 			}
-
-			if (daysTillBday > 0)
-			{
-				daysTillBday = 365 - daysTillBday;
-			}
-			if (daysTillBday < 0) 
-			{
-				daysTillBday = daysTillBday * -1;
-			}
+			console.WriteLine(“Your Birthday is in {0} days” , difference);
 
 			//Array[] letters = text.Split("");
 			//System.Console.WriteLine("{0} words in text:", words.Length);
